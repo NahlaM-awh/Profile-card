@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Profile</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="phone" role="region" aria-label="Social profile">
+    <div class="cover">
+      <div class="avatar-wrap">
+        <div class="avatar" aria-label="Profile image" title="Profile image"></div>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="name-row">
+        <div>
+          <h1 class="title" id="displayName">NAHLA M</h1>
+          <div class="handle" id="handle">@_nahlaa.___</div>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="followBtn" aria-pressed="false">Follow</button>
+          <button class="btn outline" id="messageBtn">Message</button>
+        </div>
+      </div>
+      <p class="bio" id="bio">💻 Web Developer | Tech Explorer | Lifelong Learner 🚀</p>
+    </header>
+
+    <section class="stats" aria-label="Profile stats">
+      <div class="stat"><div class="num" id="postsCount">0</div><div class="label">Posts</div></div>
+      <div class="stat"><div class="num" id="followersCount">644</div><div class="label">Followers</div></div>
+      <div class="stat"><div class="num" id="followingCount">641</div><div class="label">Following</div></div>
+    </section>
+
+   <nav class="highlights" aria-label="Social Links">
+  <div class="highlight">
+    <a href="https://instagram.com/_nahlaa.___" target="_blank" class="hl-thumb" aria-label="Instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+    </a>
+    <span>Instagram</span>
+  </div>
+
+  <div class="highlight">
+    <a href="https://github.com/NahlaM-awh" target="_blank" class="hl-thumb" aria-label="GitHub">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo">
+    </a>
+    <span>GitHub</span>
+  </div>
+
+  <div class="highlight">
+    <a href="https://www.linkedin.com/in/nahla-m-abb5a5361" target="_blank" class="hl-thumb" aria-label="LinkedIn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo.svg" alt="LinkedIn Logo">
+    </a>
+    <span>LinkedIn</span>
+  </div>
+</nav>
+
+      <div class="grid" id="grid">
+      </div>
+    </section>
+
+    <div class="footer">©Nahla M</div>
+  </main>
+
+  <script>
+    
+    const followBtn = document.getElementById('followBtn');
+    const messageBtn = document.getElementById('messageBtn');
+
+    function renderGrid(items) {
+      grid.innerHTML = '';
+      items.forEach(src => {
+        const tile = document.createElement('div');
+        tile.className = 'tile';
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.src = src;
+        img.alt = 'Post image';
+        tile.appendChild(img);
+        grid.appendChild(tile);
+      });
+    }
+
+    followBtn.addEventListener('click', () => {
+      const pressed = followBtn.getAttribute('aria-pressed') === 'true';
+      followBtn.setAttribute('aria-pressed', String(!pressed));
+      followBtn.textContent = pressed ? 'Follow' : 'Following';
+      followBtn.classList.toggle('primary', !pressed);
+    });
+
+    messageBtn.addEventListener('click', () => {
+  window.open("https://t.me/nahlam05", "_blank");
+});
+
+  </script>
+
+  <script>
+    function icon() { return ''; }
+  </script>
+</body>
+</html>
